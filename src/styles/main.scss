@@ -1,0 +1,119 @@
+.container {
+  // width: 440px;
+  background: #000;
+  color: #ffffff;
+  height: 100vh;
+  max-height: 667px;
+
+  .numbers {
+    background-color: #000; // Màu nền nhạt
+    border-radius: 10px; // Bo tròn các góc
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Đổ bóng nhẹ cho phần tử
+    // padding: 0px 16px 62px; // Khoảng đệm cho phần tử
+    max-width: 600px; // Chiều rộng tối đa
+    // margin: 20px auto; // Căn giữa
+  }
+  ul {
+    list-style-type: none; // Bỏ dấu đầu dòng
+    padding: 0; // Bỏ khoảng đệm
+    flex-wrap: wrap;
+    display: flex;
+    margin: 0; // Bỏ khoảng cách
+    justify-content: center;
+  }
+
+  li {
+    display: flex; // Sử dụng flexbox để bố trí
+    flex-direction: column; // Đặt hướng flex là cột
+    justify-content: center; // Căn giữa nội dung
+    align-items: center; // Căn giữa theo chiều dọc
+    // border: 1px solid #d1d1d130; // Đường viền cho mỗi phần tử
+    border-radius: 50%; // Bo tròn 100% để tạo hình tròn
+    width: 80px; // Đặt chiều rộng cố định
+    height: 80px; // Đặt chiều cao cố định
+    margin: 6px 12px; // Khoảng cách giữa các phần tử danh sách
+    transition: background-color 0.3s;
+
+    transition: background-color 0.2s; // Hiệu ứng chuyển màu nền
+    font-size: 18px;
+    background-color: #d1d1d130;
+    &:active {
+      background-color: #d3d3d3d1; /* Màu nền khi nhấn */
+      border-color: darkgray;
+      transition: background-color 0.1s;
+    }
+    &:focus-visible {
+      background-color: #d1d1d130;
+    }
+    .number {
+      font-size: 26px;
+      color: #ffffff;
+    }
+    .text {
+      color: #ffffff;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+  }
+  .ll {
+    display: flex;
+    justify-content: center;
+    padding-top: 16px;
+    .icon-call {
+      display: flex; // Sử dụng flexbox để bố trí
+      flex-direction: column; // Đặt hướng flex là cột
+      justify-content: center; // Căn giữa nội dung
+      align-items: center; // Căn giữa theo chiều dọc
+      // border: 1px solid #20c741; // Đường viền cho mỗi phần tử
+      border-radius: 50%; // Bo tròn 100% để tạo hình tròn
+      width: 80px; // Đặt chiều rộng cố định
+      height: 80px; // Đặt chiều cao cố định
+      margin: 10px; // Khoảng cách giữa các phần tử danh sách
+      transition: background-color 0.3s;
+
+      transition: background-color 0.2s; // Hiệu ứng chuyển màu nền
+      background: #20c741;
+
+      &:checked {
+        background-color: #e0e0e0; // Đổi màu nền khi di chuột qua
+      }
+      .call {
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        font-size: 26px;
+      }
+    }
+    .delete {
+      // color: #d3d3d3d1;
+      font-size: 18px;
+      margin-left: 210px;
+      position: absolute;
+      margin-top: 36px;
+    }
+  }
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 26px 0px 0px;
+    .icon-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #8e8e93;
+      .vv {
+        font-size: 12px;
+      }
+    }
+    .bb {
+      color: #0d83f9;
+    }
+    .icon {
+      font-size: 24px;
+    }
+  }
+  .addcall {
+    background-color: #bebebe2e;
+  }
+}
