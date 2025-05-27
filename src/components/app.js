@@ -18,6 +18,7 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   // const [selectedIndex, setSelectedIndex] = useState(null); // State để lưu chỉ số đã chọn
   const [selectedNumber, setSelectedNumber] = useState(null);
+  const audio = new Audio("/sound/162019_2406958-lq.mp3");
 
   const numbers = [
     { number: 1 },
@@ -34,6 +35,14 @@ function App() {
     { number: "#" },
   ];
 
+  const handleCallClick = () => {
+    audio.play(); // Phát âm thanh khi nhấp vào biểu tượng gọi
+    setTimeout(() => {
+      audio.pause(); // Dừng âm thanh sau 7 giây
+      audio.currentTime = 0; // Đặt lại thời gian phát
+    }, 10000);
+  };
+
   const handleButtonClick = (number) => {
     setInputValue(inputValue + number);
     // setSelectedIndex(null); // Reset selected index khi nhấn
@@ -46,6 +55,7 @@ function App() {
   };
 
   const handleCall = () => {
+    handleCallClick();
     setIsCalling(true);
   };
 

@@ -38,6 +38,8 @@ function CallingScreen({ phoneNumber, onEndCall }) {
   const [countdownVisible, setCountdownVisible] = useState(false);
   const [countdown, setCountdown] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const audio = new Audio("/sound/162019_2406958-lq.mp3");
+
   const toggleSpeaker = () => {
     setIsActive((prevActive) => !prevActive); // Đảo ngược trạng thái khi nhấn
   };
@@ -47,13 +49,16 @@ function CallingScreen({ phoneNumber, onEndCall }) {
       setShowCalling(false); // Ẩn chữ "Calling..."
       setCountdownVisible(true); // Hiện thị số đếm
       setCountdown(1); // Bắt đầu đếm từ 0
-    }, 3000); // Sau 3 giây
+    }, 10000); // Sau 7 giây
 
     return () => clearTimeout(timer); // Cleanup timer
   }, []);
 
   useEffect(() => {
     if (countdownVisible) {
+      audio.pause(); // Dừng âm thanh khi bắt đầu đếm số
+      audio.currentTime = 0; // Đặt thời gian phát lại về 0
+
       const interval = setInterval(() => {
         setCountdown((prev) => prev + 1); // Tăng số đếm mỗi giây
       }, 1000);
@@ -67,6 +72,26 @@ function CallingScreen({ phoneNumber, onEndCall }) {
     const seconds = String(count % 60).padStart(2, "0"); // Tính giây
     return minutes + ":" + seconds; // Trả về định dạng 00:00
   };
+
+  // useEffect(() => {
+  //   let interval;
+  //   if (countdownVisible) {
+  //     interval = setInterval(() => {
+  //       setCountdown((prevCountdown) => {
+  //         if (prevCountdown < 3) {
+  //           return prevCountdown + 1;
+  //         } else {
+  //           audio.play(); // Phát âm thanh khi đạt 3
+  //           clearInterval(interval);
+  //           return prevCountdown;
+  //         }
+  //       });
+  //     }, 1000); // Cập nhật mỗi giây
+  //   }
+
+  //   return () => clearInterval(interval);
+  // }, [countdownVisible]);
+
   return (
     <div className="container">
       <div className="header2">
