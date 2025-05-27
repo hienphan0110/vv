@@ -2,8 +2,12 @@
   // width: 440px;
   background: #000;
   color: #ffffff;
-  height: 100vh;
-  max-height: 667px;
+  //g
+  height: calc(100vh - 20px); /* Giảm chiều cao để có khoảng cách */
+  max-height: 667px; /* Giới hạn chiều cao tối đa */
+  width: 100%; /* Chiều rộng đầy đủ */
+  padding: 10px; /* Thêm khoảng cách bên trong */
+  box-sizing: border-box;
 
   .numbers {
     background-color: #000; // Màu nền nhạt
